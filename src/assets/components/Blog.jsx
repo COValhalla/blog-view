@@ -4,7 +4,7 @@ import CardComponent from './Card';
 function Blog() {
   return (
     <div className="container">
-      <div className="row">
+      <div className="row justify-content-center">
         <div className="col-12 text-center">
           <h1>All Blog Posts</h1>
         </div>
