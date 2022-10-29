@@ -1,10 +1,11 @@
-import Navigation from './assets/Navbar';
+import Navigation from './assets/partials/Navbar';
+import Main from './assets/components/Main';
+import Blog from './assets/components/Blog';
 
 function App() {
   return (
-    <div className="">
-      <Navigation />
-      <h1>React Bootstrap</h1>
+    <div className="container">
+      <h1>Home Page</h1>
     </div>
   );
 }
