@@ -27,6 +27,7 @@ function Blog() {
               author={blog.author}
               date={blog.date}
               comments={blog.comments}
+              id={blog._id}
             />
           </div>
         ))}
