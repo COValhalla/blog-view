@@ -1,15 +1,20 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function CardComponent() {
+function truncateContent(content) {
+  if (content.length > 100) {
+    return content.substring(0, 100) + '...';
+  } else {
+    return content;
+  }
+}
+
+function CardComponent(props) {
   return (
     <Card className="mx-4 my-2" style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>{truncateContent(props.content)}</Card.Text>
         <Button variant="primary">View</Button>
       </Card.Body>
     </Card>
