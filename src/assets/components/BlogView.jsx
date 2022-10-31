@@ -4,28 +4,37 @@ import { useParams } from 'react-router-dom';
 function BlogView() {
   const { id } = useParams();
   const [blog, setBlog] = React.useState();
+  const [errors, setErrors] = React.useState();
 
   React.useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`http://localhost:3000/api/blogs/${id}`);
       const data = await response.json();
-      setBlog(data);
+      if (response.ok) {
+        setBlog(data);
+      } else {
+        setErrors(data);
+      }
     };
     fetchData();
+    console.log(blog);
+    console.log(errors);
   }, []);
 
   return (
     <div className="container">
-      <div className="row justify-content-center">
+      <div className="row justify-content-center p-3">
         {blog ? (
-          <div className="col-12 text-center">
+          <div className="col-xl-6 ">
             <h1>{blog.title}</h1>
+            <div className="row">
+              <p className="col">Posted by: {blog.user.username}</p>
+              <p className="col">Date: {blog.date}</p>
+            </div>
             <p>{blog.content}</p>
-            <p>Author: {blog.user.username}</p>
-            <p>Date: {blog.date}</p>
-            <p>Comments: {blog.comments}</p>
           </div>
         ) : null}
+        {errors ? <p className="text-center">{errors.error}</p> : null}
       </div>
     </div>
   );
