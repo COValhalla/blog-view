@@ -5,7 +5,7 @@ function Blog() {
   // Fetch blogs from API
   const [blogs, setBlogs] = React.useState([]);
   React.useEffect(() => {
-    fetch('http://localhost:3000/api/blogs')
+    fetch('https://blooming-reef-21992.herokuapp.com/api/blogs')
       .then((response) => response.json())
       .then((data) => setBlogs(data));
   }, []);
@@ -20,7 +20,7 @@ function Blog() {
         </div>
 
         {blogs.blog_list?.map((blog) => (
-          <div className="col-12 col-md-6 col-lg-4">
+          <div key={blog._id} className="col-12 col-md-6 col-lg-4">
             <CardComponent
               title={blog.title}
               content={blog.content}

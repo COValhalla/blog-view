@@ -8,7 +8,9 @@ function BlogView() {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:3000/api/blogs/${id}`);
+      const response = await fetch(
+        `https://blooming-reef-21992.herokuapp.com/api/blogs/${id}`,
+      );
       const data = await response.json();
       if (response.ok) {
         setBlog(data);
@@ -18,7 +20,6 @@ function BlogView() {
     };
     fetchData();
     console.log(blog);
-    console.log(errors);
   }, []);
 
   return (
@@ -29,7 +30,7 @@ function BlogView() {
             <h1>{blog.title}</h1>
             <div className="row">
               <p className="col">Posted by: {blog.user.username}</p>
-              <p className="col">Date: {blog.date}</p>
+              <p className="col">Date: {blog.Date}</p>
             </div>
             <p>{blog.content}</p>
           </div>
