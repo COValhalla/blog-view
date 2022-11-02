@@ -30,7 +30,7 @@ function BlogView() {
             <h1>{blog.title}</h1>
             <div className="row">
               <p className="col">Posted by: {blog.user.username}</p>
-              <p className="col">Date: {blog.Date}</p>
+              <p className="col">{blog.Date}</p>
             </div>
             <p>{blog.content}</p>
           </div>
