@@ -9,7 +9,7 @@ function BlogView() {
   React.useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
-        `https://blooming-reef-21992.herokuapp.com/api/blogs/${id}`,
+        `https://blog-api-covalhalla.herokuapp.com/api/blogs/${id}`,
       );
       const data = await response.json();
       if (response.ok) {

@@ -5,7 +5,7 @@ function Blog() {
   // Fetch blogs from API
   const [blogs, setBlogs] = React.useState([]);
   React.useEffect(() => {
-    fetch('https://blooming-reef-21992.herokuapp.com/api/blogs')
+    fetch('https://blog-api-covalhalla.herokuapp.com/api/blogs')
       .then((response) => response.json())
       .then((data) => setBlogs(data));
   }, []);
